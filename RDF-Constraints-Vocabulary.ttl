@@ -1,0 +1,102 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdfcv: <http://RDF-Constraints-Vocabulary.org/rdfcv#> .
+
+
+#################################################################
+# Ontology
+#################################################################
+
+rdfcv:rdfcv a owl:Ontology;
+    dc:title
+        "RDF-Constraints-Vocabulary"@en;
+    rdfs:comment
+        "RDF-Constraints-Vocabulary"@en;
+    dc:contributor
+        "Thomas Bosch",
+        "Erman Acar",
+        "Kai Eckert";
+    dc:creator
+        "Thomas Bosch";
+    owl:versionInfo 
+	    "Version 1.0 - 2015-02-13".
+
+#################################################################
+# Classes
+#################################################################
+
+rdfcv:SimpleConstraint 
+    a rdfs:Class, owl:Class;
+    rdfs:label "simple constraint"@en;
+	rdfs:comment "simple constraint"@en;
+    rdfs:isDefinedBy rdfcv:rdfcv.
+
+rdfcv:PropertyConstraint 
+    a rdfs:Class, owl:Class;
+    rdfs:label "property constraint"@en;
+	rdfs:comment "property constraint"@en;
+    rdfs:isDefinedBy rdfcv:rdfcv;
+	rdfs:subClassOf rdfcv:SimpleConstraint.
+
+rdfcv:ClassConstraint 
+    a rdfs:Class, owl:Class;
+    rdfs:label "class constraint"@en;
+	rdfs:comment "class constraint"@en;
+    rdfs:isDefinedBy rdfcv:rdfcv;
+	rdfs:subClassOf rdfcv:SimpleConstraint.
+	
+#################################################################
+# Datatype properties
+#################################################################
+
+rdfcv:contextClass 
+    a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "context class"@en;
+	rdfs:comment "context class"@en;
+    rdfs:domain rdfcv:SimpleConstraint;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy rdfcv:rdfcv.
+	
+rdfcv:constrainingElement
+    a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "constraining element"@en;
+	rdfs:comment "constraining element"@en;
+    rdfs:domain rdfcv:SimpleConstraint;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy rdfcv:rdfcv.
+	
+rdfcv:constrainingValue
+    a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "constraining value"@en;
+	rdfs:comment "constraining value"@en;
+    rdfs:domain rdfcv:SimpleConstraint;
+    rdfs:range xsd:string;
+    rdfs:isDefinedBy rdfcv:rdfcv.
+
+#################################################################
+# Object properties
+#################################################################
+
+rdfcv:classes 
+    a rdf:Property, owl:ObjectProperty;
+    rdfs:label "classes"@en;
+	rdfs:comment "classes"@en;
+    rdfs:domain rdfcv:SimpleConstraint;
+    rdfs:range rdf:List;
+    rdfs:isDefinedBy rdfcv:rdfcv.
+	
+rdfcv:leftProperties
+    a rdf:Property, owl:ObjectProperty;
+    rdfs:label "left properties"@en;
+	rdfs:comment "left properties"@en;
+    rdfs:domain rdfcv:PropertyConstraint;
+    rdfs:range rdf:List;
+    rdfs:isDefinedBy rdfcv:rdfcv.
+	
+rdfcv:rightProperties
+    a rdf:Property, owl:ObjectProperty;
+    rdfs:label "right properties"@en;
+	rdfs:comment "right properties"@en;
+    rdfs:domain rdfcv:PropertyConstraint;
+    rdfs:range rdf:List;
+    rdfs:isDefinedBy rdfcv:rdfcv.
