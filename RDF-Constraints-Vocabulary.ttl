@@ -17,12 +17,11 @@ rdfcv:rdfcv a owl:Ontology;
         "RDF-Constraints-Vocabulary"@en;
     dcterms:contributor
         "Thomas Bosch",
-        "Erman Acar",
         "Kai Eckert";
     dcterms:creator
         "Thomas Bosch";
     owl:versionInfo 
-	    "Version 1.0 - 2015-02-13".
+	    "Version 1.0 - 2015-07-20".
 
 #################################################################
 # Classes
@@ -33,20 +32,6 @@ rdfcv:SimpleConstraint
     rdfs:label "simple constraint"@en;
 	rdfs:comment "simple constraint"@en;
     rdfs:isDefinedBy rdfcv:rdfcv.
-
-rdfcv:PropertyConstraint 
-    a rdfs:Class, owl:Class;
-    rdfs:label "property constraint"@en;
-	rdfs:comment "property constraint"@en;
-    rdfs:isDefinedBy rdfcv:rdfcv;
-	rdfs:subClassOf rdfcv:SimpleConstraint.
-
-rdfcv:ClassConstraint 
-    a rdfs:Class, owl:Class;
-    rdfs:label "class constraint"@en;
-	rdfs:comment "class constraint"@en;
-    rdfs:isDefinedBy rdfcv:rdfcv;
-	rdfs:subClassOf rdfcv:SimpleConstraint.
 	
 #################################################################
 # Datatype properties
@@ -92,7 +77,7 @@ rdfcv:leftProperties
     a rdf:Property, owl:ObjectProperty;
     rdfs:label "left properties"@en;
 	rdfs:comment "left properties"@en;
-    rdfs:domain rdfcv:PropertyConstraint;
+    rdfs:domain rdfcv:SimpleConstraint;
     rdfs:range rdf:List;
     rdfs:isDefinedBy rdfcv:rdfcv.
 	
@@ -100,6 +85,6 @@ rdfcv:rightProperties
     a rdf:Property, owl:ObjectProperty;
     rdfs:label "right properties"@en;
 	rdfs:comment "right properties"@en;
-    rdfs:domain rdfcv:PropertyConstraint;
+    rdfs:domain rdfcv:SimpleConstraint;
     rdfs:range rdf:List;
     rdfs:isDefinedBy rdfcv:rdfcv.
